@@ -21,30 +21,39 @@
             <button type="button" class="btn">7</button>
             <button type="button" class="btn">8</button>
             <button type="button" class="btn">9</button>
-            <button type="button" class="btn">÷</button>
+            <button type="button" class="opt">÷</button>
         </div>
         <div class="row">
             <button type="button" class="btn">4</button>
             <button type="button" class="btn">5</button>
             <button type="button" class="btn">6</button>
-            <button type="button" class="btn">x</button>
+            <button type="button" class="opt">x</button>
         </div>
         <div class="row">
             <button type="button" class="btn">1</button>
             <button type="button" class="btn">2</button>
             <button type="button" class="btn">3</button>
-            <button type="button" class="btn">-</button>
+            <button type="button" class="opt">-</button>
         </div>
         <div class="row">
-            <button type="button" class="btn">.</button>
+            <button type="button" class="opt">.</button>
             <button type="button" class="btn">0</button>
-            <button type="button" class="btn">=</button>
-            <button type="button" class="btn">+</button>
+            <button type="button" class="opt">=</button>
+            <button type="button" class="opt">+</button>
         </div>
     </main>
 </body>
 <script>
+    let display = document.querySelector("p");
 
+    let btns = document.querySelectorAll(".btn");
+    btns.forEach(btn => btn.addEventListener("click", function () {
+        if (display.textContent == "0") {
+            display.textContent = btn.textContent;
+        } else {
+            display.textContent = display.textContent + btn.textContent;
+        }
+    }));
 </script>
 
 </html>
