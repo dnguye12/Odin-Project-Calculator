@@ -1,4 +1,8 @@
-let display = document.querySelector("p");
+let display = document.querySelector("h3");
+let displaySec = document.querySelector("p");
+let fir = null;
+let sec = null;
+let res = null;
 
 let btns = document.querySelectorAll(".btn");
 btns.forEach(btn => btn.addEventListener("click", function () {
@@ -8,3 +12,38 @@ btns.forEach(btn => btn.addEventListener("click", function () {
         display.textContent = display.textContent + btn.textContent;
     }
 }));
+
+let btnClear = document.getElementById("btnClear");
+btnClear.addEventListener("click", function () {
+    display.textContent = "0";
+    fir = null;
+    sec = null;
+    res = null;
+});
+
+let btnDel = document.getElementById("btnDel");
+btnDel.addEventListener("click", function () {
+    if (display.textContent.length == 1) {
+        display.textContent = "0";
+    } else {
+        display.textContent = display.textContent.substring(0, display.textContent.length - 1);
+    }
+});
+
+let btnAdd = document.getElementById("add");
+btnAdd.addEventListener("click", function() {
+    if(fir == null) {
+        if(display.textContent != "0") {
+            fir = parseFloat(display.textContent);
+            displaySec.textContent = fir + " + ";
+            display.textContent = "0";
+        }
+    }else {
+        if(display.textContent != "0") {
+            fir += parseFloat(display.textContent);
+            displaySec.textContent = fir + " + ";
+            display.textContent = "0";
+        }
+    }
+
+});
