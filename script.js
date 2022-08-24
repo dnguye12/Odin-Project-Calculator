@@ -35,15 +35,28 @@ btnAdd.addEventListener("click", function() {
     if(fir == null) {
         if(display.textContent != "0") {
             fir = parseFloat(display.textContent);
-            displaySec.textContent = fir + " + ";
+            displaySec.textContent = fir + " +";
             display.textContent = "0";
         }
     }else {
         if(display.textContent != "0") {
             fir += parseFloat(display.textContent);
-            displaySec.textContent = fir + " + ";
+            displaySec.textContent = fir + " +";
             display.textContent = "0";
         }
     }
 
+});
+
+let btnEqual = document.getElementById("equal");
+btnEqual.addEventListener("click", function() {
+    if(fir != null) {
+        let opt = displaySec.textContent.slice(-1);
+        console.log(opt);
+        if(opt=="+") {
+            displaySec.textContent += (" " + display.textContent);
+            display.textContent = (parseFloat(fir) + parseFloat(display.textContent));
+        }
+        fir = null;
+    }
 });
